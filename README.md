@@ -1,1 +1,31 @@
-# Trigger_AWS_Lambda_from_Amazon_SQS
+
+Create the Lambda Function
+1. Navigate to Lambda.
+2. Select Create a function.
+3. Give the function the name "SQSDynamoDB".
+4. Under Runtime, choose Python 3.8.
+5. Select the Use an existing role and select lambda-execution-role.
+6. Click Create function.
+
+Create the SQS Trigger
+1. Click Add trigger.
+2. Search for SQS and select it.
+3. Under SQS queue, select Messages.
+4. Leave the rest as default, and ensure "Enable trigger" is selected.
+5. Click "Add".
+
+Copy the Source Code into the Lambda Function
+1. Open the lambda_function.py (attached)
+2. Paste in the source code from here.
+3. Deploy the Lambda function.
+
+Log In to the EC2 Instance and Test the Script
+1. Connect to the EC2 instance as shown.
+2. Run su - cloud_user.
+3. Run ./send_message.py -q Messages -i 0.1.
+Confirm Messages Were Inserted into the DynamoDB Table
+
+1. Open the DynamoDB console.
+2. Open the Message table.
+3. Open the Items tab.
+4. Confirm Items is populated.# Trigger_AWS_Lambda_from_Amazon_SQS
